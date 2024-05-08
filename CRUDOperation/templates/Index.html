@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <title>Pham Thanh Long M2 Research</title>
+</head>
+<body>
+    <center>
+        <h1>Growth Chamber Realtime Data</h1>
+        <h3> Data Show </h3>
+        <hr/>
+        <a href="{% url 'AddPlants' %}">Add Plants Data</a> 
+        <table border="1">
+            <tr>
+                <th>Growth Chamber Number</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Sun Energy</th>
+                <th>CO2</th>
+                <th>Water</th>
+                <th>Time</th>
+            </tr>
+            {% for result in data%}
+            <tr>
+                <td>{{result.kigo}}</td>
+                <td>{{result.temp}}</td>
+                <td>{{result.hum}}</td>
+                <td>{{result.sun}}</td>
+                <td>{{result.co2}}</td>
+                <td>{{result.water}}</td>
+                <td>{{result.time}}</td>
+                <td><a href="Edit/{{result.id}}">Change Data</a></td>
+                <td><a href="Delete/{{result.id}}" onclick="return confirm('Are you sure to delete data ?')">Delete Data</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</body>
+</html>

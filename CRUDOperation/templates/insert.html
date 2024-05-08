@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+    <title>Pham Thanh Long M2 Research</title>
+</head>
+<body>
+    <center>
+        <h1>Growth Chamber Realtime Data</h1>
+        <h3> Add Data </h3>
+        <hr/>
+        <form method="POST">
+            {% csrf_token %}
+        <table border="1">
+            <tr>
+                <td>Growth Chamber Number</td>
+                <td><select name="kigo">
+                    <option selected disable=true>---Chose Number---</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select></td>
+            </tr>
+            <tr>
+                <td>Temperature</td>
+                <td><input type="text" placeholder="Add Temperature.." name="temp"></td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td><input type="text" placeholder="Add Humidity.." name="hum"></td>
+            </tr>
+            <tr>
+                <td>Sun Energy</td>
+                <td><input type="text" placeholder="Add Sun Energy.." name="sun"></td>
+            </tr>
+            <tr>
+                <td>CO2</td>
+                <td><input type="text" placeholder="Add CO2.." name="co2"></td>
+            </tr>
+            <tr>
+                <td>Water</td>
+                <td><input type="text" placeholder="Add Water.." name="water"></td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td><input type="text" placeholder="Add Time.." name="time"></td>
+            </tr>
+            <!-- <tr>
+            
+                <td><input type="submit" name="Insert"/>
+                <td>{% if messages %}
+                    {% for mess in messages %}
+                    <b style="color: blue;">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+
+                </td>
+            </tr> -->
+        </table>
+        
+            
+            <input type="submit" name="Insert">
+            <br/>
+                {% if messages %}
+                {% for mess in messages %}
+                <b style="color: blue;">{{mess}}</b>
+                {% endfor %}
+                {% endif %}
+            <br/>    
+
+           
+        
+        <a href="{% url 'ShowPlants' %}">Home Page</a>
+    </form>
+    </center>
+</body>
+</html>
